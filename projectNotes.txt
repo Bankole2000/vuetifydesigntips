@@ -1,0 +1,12 @@
+// Install vue
+>>>: npm install -g @vue/cli
+NOTE: Select the "Vue 2" option when prompted
+
+// Add Vuetify Plugin
+>>>: vue add vuetify 
+NOTE: Select the "Prototype" option when prompted
+
+// Add Vuex Plugin
+>>>: vue add vuex
+
+
