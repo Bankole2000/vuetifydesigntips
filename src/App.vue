@@ -5,9 +5,9 @@
     <Cart />
     <v-main>
       <!-- NOTE: -->
-      <!-- <transition name="router-anim"> -->
-      <router-view></router-view>
-      <!-- </transition> -->
+      <transition name="router-anim">
+        <router-view></router-view>
+      </transition>
     </v-main>
     <Snackbar />
     <Footer />
@@ -36,10 +36,9 @@ export default {
   }),
   methods: {},
   mounted() {
-    // NOTE:
-    // this.$vuetify.theme.dark = true;
-    console.log(this.$vuetify);
-    console.log({ vuetifyObject: this.$vuetify.theme.currentTheme });
+    this.$vuetify.theme.dark = true;
+    console.log({ vuetify: this.$vuetify });
+    // console.log({ vuetifyObject: this.$vuetify.theme.currentTheme });
     // console.log({routes: this.$router.options.routes})
   },
 };

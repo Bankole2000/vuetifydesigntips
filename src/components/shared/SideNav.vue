@@ -30,7 +30,7 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-    <template v-slot:append>
+    <template v-if="$vuetify.breakpoint.smAndDown" v-slot:append>
       <div class="pa-2 d-flex justify-center align-center primary">
         <v-switch
           @change="toggleDarkMode"

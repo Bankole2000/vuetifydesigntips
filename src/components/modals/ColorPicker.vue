@@ -76,12 +76,12 @@ export default {
     },
     setColor() {
       console.log({ color: this.color });
-      // NOTE:
-      // if (this.$vuetify.theme.dark) {
-      //   this.$vuetify.theme.themes.dark.primary = this.color;
-      // } else {
-      //   this.$vuetify.theme.themes.light.primary = this.color;
-      // }
+
+      if (this.$vuetify.theme.dark) {
+        this.$vuetify.theme.themes.dark.primary = this.color;
+      } else {
+        this.$vuetify.theme.themes.light.primary = this.color;
+      }
     },
     resetColors() {
       this.$vuetify.theme.themes.light.primary = "#ee44aa";

@@ -1,18 +1,17 @@
 <template>
   <div class="cart-list">
     <v-list three-line>
-      <!-- NOTE: Transition -->
-      <!-- <v-slide-y-transition style="width: 100%" group> -->
-      <template v-for="(item, index) in itemsInCart">
-        <CartItem
-          :key="index"
-          :index="index"
-          :item="item"
-          @remove="removeFromCart($event)"
-        />
-        <v-divider :key="item.id"></v-divider>
-      </template>
-      <!-- </v-slide-y-transition> -->
+      <v-slide-y-transition style="width: 100%" group>
+        <template v-for="(item, index) in itemsInCart">
+          <CartItem
+            :key="index"
+            :index="index"
+            :item="item"
+            @remove="removeFromCart($event)"
+          />
+          <v-divider :key="item.id"></v-divider>
+        </template>
+      </v-slide-y-transition>
     </v-list>
   </div>
 </template>
@@ -36,15 +35,14 @@ export default {
   methods: {
     ...mapActions(["removeBookFromCart", "showSnackbar"]),
     removeFromCart(item) {
-      this.removeBookFromCart({ item });
-      // NOTE:
-      // .then(() => {
-      //   this.showSnackbar({
-      //     sclass: "warning",
-      //     message: "Book removed from cart",
-      //     timeout: 1500,
-      //   });
-      // });
+      this.removeBookFromCart({ item })
+      .then(() => {
+        this.showSnackbar({
+          sclass: "warning",
+          message: "Book removed from cart",
+          timeout: 1500,
+        });
+      });
     },
   },
 };

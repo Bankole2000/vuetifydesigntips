@@ -18,25 +18,26 @@
 
     <v-app-bar-nav-icon @click="toggleSideNav"></v-app-bar-nav-icon>
 
-    <v-toolbar-title>My Book Store App</v-toolbar-title>
+    <v-toolbar-title>{{
+      $vuetify.breakpoint.mdAndUp ? "My Book Store App" : "Book Store"
+    }}</v-toolbar-title>
 
     <v-spacer></v-spacer>
-    <!-- NOTE: -->
+
     <!-- v-if="$vuetify.breakpoint.mdAndUp" -->
-    <div class="d-flex align-center">
+    <div class="d-flex align-center" v-if="$vuetify.breakpoint.mdAndUp">
       <v-switch
         @change="toggleDarkMode"
         color="white"
         hide-details
         label="Toggle Dark Mode"
       >
-        <!-- NOTE: -->
-        <!-- <template v-slot:label>
+        <template v-slot:label>
           <div>
             <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
             <v-icon v-else>mdi-weather-sunny</v-icon>
           </div>
-        </template> -->
+        </template>
       </v-switch>
 
       <ColorPicker />
@@ -45,8 +46,9 @@
     <!-- :content="cart.items.length"
       :value="cart.items.length" -->
     <v-badge
-      class="mr-16"
-      :value="0"
+      :class="$vuetify.breakpoint.smAndDown ? 'mr-0' : 'mr-16'"
+      :content="cart.items.length"
+      :value="cart.items.length"
       color="accent"
       overlap
       offset-x="22"
@@ -86,8 +88,8 @@ export default {
     toggleDarkMode(e) {
       console.log({ e });
       this.darkMode = e;
-      // NOTE:
-      // this.$vuetify.theme.dark = e;
+
+      this.$vuetify.theme.dark = e;
     },
   },
   mounted() {

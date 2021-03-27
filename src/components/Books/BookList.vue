@@ -3,12 +3,11 @@
     <v-container v-if="loading">
       <v-row>
         <v-col cols="12" sm="4" v-for="n in 6" :key="n">
-          <!-- NOTE: Interactivity -->
-          <!-- <v-skeleton-loader
+          <v-skeleton-loader
             class="mx-auto"
             width="300"
             type="card"
-          ></v-skeleton-loader> -->
+          ></v-skeleton-loader>
         </v-col>
       </v-row>
     </v-container>
@@ -63,19 +62,18 @@ export default {
     ...mapActions(["getBooks", "addBookToCart", "showSnackbar"]),
     ...mapMutations(["toggleCart"]),
     addToCart(book) {
-      this.addBookToCart({ book });
-      // NOTE: Interactivity
-      // .then((data) => {
-      //   const { success, message } = data;
-      //   this.showSnackbar({
-      //     sclass: `${success ? "success" : "error"}`,
-      //     message,
-      //     timeout: 1500,
-      //   });
-      //   if (success) {
-      //     this.toggleCart({ show: true });
-      //   }
-      // });
+      this.addBookToCart({ book })
+      .then((data) => {
+        const { success, message } = data;
+        this.showSnackbar({
+          sclass: `${success ? "success" : "error"}`,
+          message,
+          timeout: 1500,
+        });
+        if (success) {
+          this.toggleCart({ show: true });
+        }
+      });
     },
   },
   mounted() {
