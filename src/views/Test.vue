@@ -2,6 +2,10 @@
   <div class="test">
     <PageTitle title="Test" />
     <v-container>
+      <v-alert class="font-weight-light">
+        This route only exists to demonstrate what adding a new route / page is
+        like with vue + vuetify
+      </v-alert>
       <v-btn
         large
         @click="

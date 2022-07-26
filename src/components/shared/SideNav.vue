@@ -40,12 +40,12 @@
           label="Toggle Dark Mode"
         >
           <!-- NOTE: -->
-          <!-- <template v-slot:label>
-          <div>
-            <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
-            <v-icon v-else>mdi-weather-sunny</v-icon>
-          </div>
-        </template> -->
+          <template v-slot:label>
+            <div>
+              <v-icon v-if="$vuetify.theme.dark">mdi-weather-night</v-icon>
+              <v-icon v-else>mdi-weather-sunny</v-icon>
+            </div>
+          </template>
         </v-switch>
         <color-picker />
       </div>
@@ -82,7 +82,7 @@ export default {
       console.log({ e });
       this.darkMode = e;
       // NOTE:
-      // this.$vuetify.theme.dark = e;
+      this.$vuetify.theme.dark = e;
     },
   },
 };

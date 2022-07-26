@@ -50,18 +50,22 @@ export default new Vuex.Store({
       if (payload.length > 0) {
         payload.forEach((book) => {
           console.log({ book });
-          const { id, volumeInfo } = book;
+          // const { id, volumeInfo } = book;
+          // const {
+          //   thumbnail: largeThumbnail,
+          //   smallThumbnail,
+          // } = volumeInfo.imageLinks;
           const {
-            thumbnail: largeThumbnail,
-            smallThumbnail,
-          } = volumeInfo.imageLinks;
-          const {
+            id,
+            largeThumbnail,
             title,
             subtitle,
             authors,
             pageCount,
             description,
-          } = volumeInfo;
+            
+            smallThumbnail,
+          } = book;
 
           featuredBooks.push({
             authors,
@@ -103,7 +107,9 @@ export default new Vuex.Store({
     },
     async getBooks({ commit }) {
       const res = await fetch(
-        "https://google-books.p.rapidapi.com/volumes?key=AIzaSyAOsteuaW5ifVvA_RkLXh0mYs6GLAD6ykc",
+        // "https://google-books.p.rapidapi.com/volumes?key=AIzaSyAOsteuaW5ifVvA_RkLXh0mYs6GLAD6ykc",
+        // "http://localhost:4000/books",
+        "https://cribba-api.herokuapp.com/books",
         {
           method: "GET",
           headers: {

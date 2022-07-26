@@ -26,10 +26,11 @@
 
     <!-- v-if="$vuetify.breakpoint.mdAndUp" -->
     <div class="d-flex align-center" v-if="$vuetify.breakpoint.mdAndUp">
+        <!-- @change="toggleDarkMode" -->
       <v-switch
-        @change="toggleDarkMode"
         color="white"
         hide-details
+        v-model="$vuetify.theme.dark"
         label="Toggle Dark Mode"
       >
         <template v-slot:label>

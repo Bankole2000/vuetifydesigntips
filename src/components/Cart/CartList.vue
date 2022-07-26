@@ -9,7 +9,7 @@
             :item="item"
             @remove="removeFromCart($event)"
           />
-          <v-divider :key="item.id"></v-divider>
+          <v-divider :key="`${index}_${item.id}`"></v-divider>
         </template>
       </v-slide-y-transition>
     </v-list>

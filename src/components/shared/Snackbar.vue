@@ -2,7 +2,8 @@
   <v-snackbar
     v-model="snackbar.show"
     :color="!$vuetify.theme.dark ? '#171717' : '#f5f5f5'"
-    :top="true"
+    :top="$vuetify.breakpoint.mdAndUp"
+    :bottom="!$vuetify.breakpoint.mdAndUp"
     :timeout="snackbar.timeout"
   >
     <p

@@ -35,7 +35,18 @@
         :class="$vuetify.theme.dark ? '#363636' : '#ffffff'"
         elevation="0"
       >
-        <v-btn :disabled="1 > cart.items.length" block large color="accent"
+        <v-btn
+          @click="
+            showSnackbar({
+              sclass: 'success',
+              message: `Thanks for shopping 🎁🙂👋`,
+              timeout: 3000,
+            })
+          "
+          :disabled="1 > cart.items.length"
+          block
+          large
+          color="accent"
           ><v-icon left>{{
             1 > cart.items.length
               ? "mdi-cart-variant"
@@ -49,7 +60,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 import CartList from "../Cart/CartList";
 export default {
   components: {
@@ -62,6 +73,7 @@ export default {
     ...mapGetters(["cart"]),
   },
   methods: {
+    ...mapActions(["showSnackbar"]),
     ...mapMutations(["toggleCart"]),
     addToCart() {
       this.cartItems.push({

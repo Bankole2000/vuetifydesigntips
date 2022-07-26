@@ -2,7 +2,7 @@
   <div class="book-list">
     <v-container v-if="loading">
       <v-row>
-        <v-col cols="12" sm="4" v-for="n in 6" :key="n">
+        <v-col cols="12" md="4" sm="6" v-for="n in 6" :key="n">
           <v-skeleton-loader
             class="mx-auto"
             width="300"
@@ -35,7 +35,17 @@
           v-for="book in featuredBooks"
           :key="book.id"
         >
-          <BookItem :book="book" @add="addToCart($event)" />
+          <BookItem
+            :book="book"
+            @shared="
+              showSnackbar({
+                sclass: 'success',
+                message: `Thanks for sharing - ${$event.title} 👋`,
+                timeout: 3000,
+              })
+            "
+            @add="addToCart($event)"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -62,8 +72,7 @@ export default {
     ...mapActions(["getBooks", "addBookToCart", "showSnackbar"]),
     ...mapMutations(["toggleCart"]),
     addToCart(book) {
-      this.addBookToCart({ book })
-      .then((data) => {
+      this.addBookToCart({ book }).then((data) => {
         const { success, message } = data;
         this.showSnackbar({
           sclass: `${success ? "success" : "error"}`,
