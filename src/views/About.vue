@@ -45,7 +45,7 @@
             >
             <v-btn
               class="text-capitalize mx-4 primary"
-              href="https://twitter.com/CodingInNeon"
+              href="https://twitter.com/theneoncoder"
               target="_blank"
               outlined
               ><v-icon left>mdi-twitter</v-icon> Follow me on Twitter</v-btn

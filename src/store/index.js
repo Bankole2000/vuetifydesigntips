@@ -63,7 +63,7 @@ export default new Vuex.Store({
             authors,
             pageCount,
             description,
-            
+
             smallThumbnail,
           } = book;
 
@@ -109,14 +109,14 @@ export default new Vuex.Store({
       const res = await fetch(
         // "https://google-books.p.rapidapi.com/volumes?key=AIzaSyAOsteuaW5ifVvA_RkLXh0mYs6GLAD6ykc",
         // "http://localhost:4000/books",
-        "https://cribba-api.herokuapp.com/books",
+        "https://cribbyapi-production.up.railway.app/books",
         {
           method: "GET",
-          headers: {
-            "x-rapidapi-key":
-              "40c448f4afmshf67cdd73849df73p10642bjsnd5fd4599eb04",
-            "x-rapidapi-host": "google-books.p.rapidapi.com",
-          },
+          // headers: {
+          //   "x-rapidapi-key":
+          //     "40c448f4afmshf67cdd73849df73p10642bjsnd5fd4599eb04",
+          //   "x-rapidapi-host": "google-books.p.rapidapi.com",
+          // },
         }
       );
       const data = await res.json();
